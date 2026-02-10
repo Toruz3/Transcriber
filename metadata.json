@@ -1,0 +1,7 @@
+{
+  "name": "HyperScriber Pro",
+  "description": "Advanced video transcription utilizing Gemini 3 Pro with Thinking capability to handle large files and complex mathematical formulas in LaTeX.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
