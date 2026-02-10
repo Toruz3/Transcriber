@@ -1,11 +1,12 @@
+// Modelli Gemini disponibili (aggiornati)
 export const GEMINI_PRO_MODEL = 'gemini-3-pro-preview';
 export const GEMINI_FLASH_MODEL = 'gemini-3-flash-preview';
 
 export const MAX_FILE_SIZE_WARNING = 2 * 1024 * 1024 * 1024; // 2GB
-export const MAX_PREVIEW_SIZE = 50 * 1024 * 1024; // Lowered to 50MB to be extremely safe against OOM
-export const UPLOAD_CHUNK_SIZE = 8 * 1024 * 1024; // 8MB chunks for upload (standard stable size)
+export const MAX_PREVIEW_SIZE = 50 * 1024 * 1024; // 50MB per evitare OOM
+export const UPLOAD_CHUNK_SIZE = 8 * 1024 * 1024; // 8MB chunks per l'upload
 
-// Prompt specifically tuned for verbatim transcription and LaTeX handling
+// Prompt ottimizzato per trascrizione verbatim e LaTeX
 export const TRANSCRIPTION_PROMPT = `
 You are a professional transcriber and mathematician. 
 Your task is to provide a verbatim, word-for-word transcription of the provided media.

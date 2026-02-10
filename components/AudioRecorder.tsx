@@ -15,6 +15,10 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecordingComplet
 
   const startRecording = useCallback(async () => {
     try {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+         throw new Error("Browser does not support audio recording.");
+      }
+
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorderRef.current = new MediaRecorder(stream);
       chunksRef.current = [];
@@ -45,9 +49,13 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({ onRecordingComplet
 
       mediaRecorderRef.current.start();
       setIsRecording(true);
-    } catch (err) {
+    } catch (err: any) {
       console.error("Error accessing microphone:", err);
-      alert("Could not access microphone. Please check permissions.");
+      if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+        alert("Microphone permission was denied. Please allow microphone access in your browser settings (usually the lock icon in the address bar).");
+      } else {
+        alert(`Could not access microphone: ${err.message}`);
+      }
     }
   }, [onRecordingComplete]);
 
