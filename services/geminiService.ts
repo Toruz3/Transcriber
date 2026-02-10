@@ -48,6 +48,7 @@ async function uploadToGemini(
   while (offset < file.size) {
     const chunkEnd = Math.min(offset + UPLOAD_CHUNK_SIZE, file.size);
     const chunk = file.slice(offset, chunkEnd);
+    const chunkSize = chunk.size;
     const isLastChunk = chunkEnd === file.size;
 
     // Use X-Goog-Upload-Command for robust chunk handling
