@@ -54,10 +54,10 @@ async function uploadToGemini(
     const command = isLastChunk ? 'upload, finalize' : 'upload';
     
     const headers: Record<string, string> = {
-      'Content-Type': contentType, 
-      'X-Goog-Upload-Offset': offset.toString(),
-      'X-Goog-Upload-Command': command,
-    };
+     'Content-Length': chunkSize.toString(), // ← AGGIUNGI QUESTA RIGA!
+     'X-Goog-Upload-Offset': offset.toString(),
+     'X-Goog-Upload-Command': command,
+   };
 
     const uploadRes = await fetch(resumableUrl, {
       method: 'POST', // Use POST for Unified Resumable Protocol commands

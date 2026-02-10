@@ -1,6 +1,6 @@
 // Modelli Gemini disponibili (aggiornati)
-export const GEMINI_PRO_MODEL = 'gemini-3-pro-preview';
-export const GEMINI_FLASH_MODEL = 'gemini-3-flash-preview';
+export const GEMINI_PRO_MODEL = 'gemini-2.0-flash-thinking-exp-01-21';
+export const GEMINI_FLASH_MODEL = 'gemini-2.0-flash-exp';
 
 export const MAX_FILE_SIZE_WARNING = 2 * 1024 * 1024 * 1024; // 2GB
 export const MAX_PREVIEW_SIZE = 50 * 1024 * 1024; // 50MB per evitare OOM
